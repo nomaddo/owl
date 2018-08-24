@@ -23,7 +23,7 @@
     -g -O3 -Ofast
   )
   (c_library_flags
-    -framework opencl
+    -lOpenCL
   )
   (flags (:standard))
   (libraries
@@ -36,6 +36,6 @@
 
 (rule
   (targets owl_opencl_kernel_impl.ml)
-  (deps    config/make_kernel.exe)
-  (action  (run %{deps}))
+  (deps    config/make_kernel.ml)
+  (action  (run ocaml %{deps}))
 )
